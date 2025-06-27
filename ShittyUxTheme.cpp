@@ -130,9 +130,11 @@ static int do_the_patch(const wchar_t* image)
 #elif defined(_M_AMD64)
     0x31, 0xC0,      // xor eax, eax
     0xC3                // ret
-#elif defined(_M_ARM64)
+#elif defined(_M_ARM64EC)
     0x00, 0x00, 0x80, 0x52, // mov w0, #0
     0xC0, 0x03, 0x5F, 0xD6, // ret
+#elif defined(_M_ARM64)
+#error There is no ARM64 build of symsrv available. Please build as ARM64EC instead!
 #endif
   };
 
